@@ -48,11 +48,22 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+
+        $mensajes=[
+            "required"=>"El campo es Obligatorio",
+            "string"  =>"El campo debe incluir letras, numeros y simbolos",
+            "min"     =>"El campo debe contener al menos :min caracteres",
+            "max"     =>"El maximo de caracteres es :max",
+            "image"   =>"El archivo bajo validación debe ser una imagen (jpeg, png, bmp, gif, svg o webp)",
+            ];
+
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+            "alias"     =>"required|string|min:8|max:100",
+            "name"      =>"required|string|min:8|max:100",
+            "email"     =>"required|string|max:50",
+            "password"  =>"required|string|min:10",
+            "avatar"    =>"required|image"
+        ],$mensajes);
     }
 
     /**

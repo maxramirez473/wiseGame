@@ -4,20 +4,29 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <!-- rutas css -->
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link rel="shortcut icon" href="{{asset('images/wisegame.png')}}" type="image/x-icon">
+        <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <title>WISE GAME</title>
 
         <!-- Styles -->
         <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
+             body {
+                width: 100%;
+                height: 600px;
+                background:rgb(37, 72, 142);
+                /* fallback for old browsers */
+                background: -webkit-linear-gradient(to right, hsla(340, 95%, 50%, 0.459), hsla(317, 45%, 52%, 0.664)), url(../images/wisegame1.png);
+                /* Chrome 10-25, Safari 5.1-6 */
+                background: linear-gradient(to right, hsla(220, 59%, 35%), hsla(217, 99%, 17%, 0.66)), url(../images/wisegame1.png);
+                /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+               /*background-size: contain;*/
+               background-repeat: repeat-x;
+                background-attachment: fixed;
+                position: relative;
+                color: #fff;    
             }
 
             .full-height {
@@ -49,8 +58,8 @@
             }
 
             .links > a {
-                color: #636b6f;
-                padding: 0 25px;
+                color: #fff;
+                padding: 0 10px;
                 font-size: 13px;
                 font-weight: 600;
                 letter-spacing: .1rem;
@@ -59,40 +68,33 @@
             }
 
             .m-b-md {
-                margin-bottom: 30px;
+                margin-bottom: 10px;
             }
         </style>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
-                <div class="top-right links">
+                <div class="top-right links pr-5">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}">Principal</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register') }}">Registro</a>
                         @endif
                     @endauth
                 </div>
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+                <div class=" m-b-md">
+                   <h3 class="title">WISE GAME</h3>
+                   <p>Bienvenido a WISEGAME, un juego interactivo que pondra a prueba tus conocimientos generales,</p>
+                   <p>con una gama de interesantes preguntas y asi demostrar que eres el mejor de todos!!! </p>
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
             </div>
         </div>
     </body>

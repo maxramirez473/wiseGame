@@ -1,0 +1,199 @@
+body{
+    background-color: rgb(37, 72, 142)!important;
+    width: 100%;
+    height: 600px;
+    background:rgb(37, 72, 142);
+                /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, hsla(340, 95%, 50%, 0.459), hsla(317, 45%, 52%, 0.664)), url(../images/wisegame1.png);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, hsla(220, 59%, 35%), hsla(217, 99%, 17%, 0.66)), url(../images/wisegame1.png);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    /*background-size: contain;*/
+    background-repeat: repeat-x;
+    background-attachment: fixed;
+    position: relative;
+}
+
+main .sobre-nosotros{
+    padding: 30px 0 60px 0;
+}
+
+div.menu{
+    background:rgb(37, 72, 142);
+     /* fallback for old browsers */
+     background: -webkit-linear-gradient(to right, hsla(340, 95%, 50%, 0.459), hsla(317, 45%, 52%, 0.664)), url(../images/wisegame1.png);
+     /* Chrome 10-25, Safari 5.1-6 */
+     background: linear-gradient(to right, hsla(220, 59%, 35%), hsla(217, 99%, 17%, 0.66)), url(../images/wisegame1.png);
+     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+header {
+    width: 100%;
+    height: 600px;
+   background:rgb(37, 72, 142);
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, hsla(340, 95%, 50%, 0.459), hsla(317, 45%, 52%, 0.664)), url(../images/wisegame1.png);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, hsla(220, 59%, 35%), hsla(217, 99%, 17%, 0.66)), url(../images/wisegame1.png);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.wave{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.nav-link{
+    color: #ffffff !important;
+}
+
+.titulo {
+    color: #2e518b;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.super-tittle{
+    color: #ffffff;
+    text-align: center;
+    font-size: 4em;
+}
+
+.tittle{
+    color: #ffffff;
+    text-align: center;
+    font-size: 2em;
+} 
+
+footer{
+    background: #2e518b;
+    padding: 60px 0 30px 0;
+    margin: auto;
+    overflow: hidden;
+}
+
+.content-foo h4{
+    color: #fff;
+    font-size: 1em;
+}
+
+.titulo-final{
+    font-size: 1em;
+    color: #fff;
+}
+
+.bg{
+    background-color: #2e518b;
+}
+
+.section-tittle{
+    color: #2e518b;
+}
+
+.contenedor {
+    padding: 60px 0;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.boton {
+    border: 20px solid #2e518b; /*anchura, estilo y color borde*/
+    padding: 10px; /*espacio alrededor texto*/
+    background-color: #2e518b; /*color botón*/
+    color: #ffffff; /*color texto*/
+    text-decoration: none; /*decoración texto*/
+    text-transform: uppercase; /*capitalización texto*/
+    font-family: "raleway"; /*tipografía texto*/
+    border-radius: 50px; /*bordes redondos*/
+    }
+
+/* Galeria */
+
+
+.tematicas{
+    background:  #fff;
+}
+
+.galeria-port{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.imagen-port{
+    width: 24%;
+    margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .5);
+}
+
+.imagen-port > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hover-galeria{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    transform: scale(0);
+    background: hsla(217, 99%, 17%, 0.66);
+    transition: transform .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hover-galeria img{
+    width: 50px;
+}
+
+.hover-galeria p{
+    color: #fff;
+}
+
+.imagen-port:hover .hover-galeria{
+    transform: scale(1);
+}
+
+/*cards*/
+
+.card-text{
+    color: #2e518b;
+}
+
+.google-maps {
+    position: relative;
+    padding-bottom: 75%;
+    height: 0;
+    overflow: hidden;
+    
+  }
+  .google-maps iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  /*play styles*/
+
+  .juguemos{
+      background-color: black;
+      color: red;
+      border: 5px solid grey;
+  }

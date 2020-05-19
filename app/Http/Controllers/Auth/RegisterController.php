@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Ranking;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -92,6 +93,9 @@ class RegisterController extends Controller
         $rank->user_id=$hola->toArray()['id'];
         $rank->save();
         return $hola;
+
+       /* $hola['user_id']=$rank['user_id'];
+        dd( $hola);*/
     }
 
     

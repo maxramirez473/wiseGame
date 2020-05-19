@@ -7,9 +7,11 @@
     
     <div class="perfil w-80 d-md-flex justify-content-between mx-auto border rounded p-3 mb-3">
         <div class="card col-12 col-md-6 mr-md-2">
-            <img class="card-img-top w-50 mx-auto mt-2 rounded" src="{{asset('images/Melina.suarez15.jpg')}}" alt="Card image cap">
+            <img class="card-img-top w-50 mx-auto mt-2 rounded" src="/storage/imagenesUsuarios/{{Auth::user()->avatar}}" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title text-center">Cosme _Fulanito</h5>
+              <h5 class="card-title text-center" style="color:rgb(37, 72, 142)"> Alias: {{Auth::user()->alias}}</h5>
+              <h6 class="card-title text-center" style="color:rgb(37, 72, 142)"> Nombre: {{Auth::user()->name}}</h5>
+              <h6 class="card-title text-center" style="color:rgb(37, 72, 142)"> Email: {{Auth::user()->email}}</h5>
             </div>
         </div>
 
@@ -18,7 +20,7 @@
               Editar Perfil
             </button>
             <div class="dropdown-menu">
-                <form class="px-4 py-3">
+                <form class="px-4 py-3" action="#">
                   <div class="form-group">
                     <label for="exampleDropdownFormEmail1">Editar Email</label>
                     <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">

@@ -94,44 +94,5 @@ class RegisterController extends Controller
         return $hola;
     }
 
-    //agregar admin nuevo con ranking en cero
-    public function agregarAdmin(Request $form){
-        $reglas=[
-            "alias"     =>"required|string|min:8|max:100",
-            "email"     =>"required|string|max:50",
-            "password"  =>"required|string|min:10",
-            "password_confirm"=>"required|string|min:10|same:password",
-            "birthday"  =>"required|date",
-            "avatar"    =>"required|image"
-        ];
-
-        $mensajes=[
-            "required"=>"El campo es Obligatorio",
-            "string"  =>"El campo debe incluir letras, numeros y simbolos",
-            "min"     =>"El campo debe contener al menos :min caracteres",
-            "max"     =>"El maximo de caracteres es :max",
-            "date"    =>"El debe ser una fecha valida",
-            "image"   =>"El archivo bajo validación debe ser una imagen (jpeg, png, bmp, gif, svg o webp)",
-            "same"    =>"No coincide con la contraseña ingresada anteriormente"
-        ];
-
-        dd($form);
-        $this->validate($form, $reglas, $mensajes);
-        $ruta=$form->file('avatar')->store('public/imagenesUsuarios');
-
-        $persona = new Person();
-        $persona->alias=$form['alias'];
-        $persona->email=$form['email'];
-        $persona->password=$form['password'];
-        $persona->avatar=basename($ruta);
-        $persona->birthday=$form['birthday'];
-        $persona->save();
-
-
-        $rank=new Ranking;
-        $rank->persons_id=$persona->id;
-        $rank->save();
-
-        return redirect('home');
-    }    
+    
 }

@@ -47,13 +47,13 @@
     <form action="#" class="was-validated w-50 mx-auto ">
       @csrf
       <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email" required>
-        <small id="emailHelp" class="form-text text-muted">Well never share your email with anyone else.</small>
+        <label for="exampleInputEmail1">Email</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresar email" name="email" required value="{{Auth::user()->email}}">
+        <small id="emailHelp" class="form-text text-muted">Tu email jamas sera compartido</small>
       </div>  
 
       <div class="form-group mb-0">
-        <label for="exampleFormControlFile1">Example file input</label>
+        <label for="exampleFormControlFile1">Seleccionar Archivo</label>
         <input type="file" class="form-control-file" id="exampleFormControlFile1">
       </div>
       

@@ -14,6 +14,19 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/home/faqs', function () {
+    return view('faq');
+});
+
+Route::get('/home/ranking', function () {
+    return view('ranking');
+});
+
+Route::get('/home/perfil', function () {
+    return view('profile');
+});
+
+Route::post('/home/play', 'questionController@pregunta');
 
 Auth::routes();
 

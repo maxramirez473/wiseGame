@@ -7,61 +7,6 @@
 
 @section('principal')
 
-<nav class="navbar navbar-expand-md navbar-light shadow-sm">
-  <div class="container">
-      <a class="navbar-brand nav-link" href="{{ url('/') }}">
-          {{ config('app.name', 'WISEGAME') }}
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <!-- Left Side Of Navbar -->
-          <ul class="navbar-nav mr-auto">
-
-          </ul>
-
-          <!-- Right Side Of Navbar -->
-          <ul class="navbar-nav ml-auto">
-              <!-- Authentication Links -->
-              @guest
-                  <li class="nav-item">
-                      <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                  </li>
-                  @if (Route::has('register'))
-                      <li class="nav-item">
-                          <a class="nav-link" href="{{ route('register') }}">{{ __('Registro') }}</a>
-                      </li>
-                  @endif
-              @else
-                  <li class="nav-item dropdown">
-                      <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                          {{ Auth::user()->alias }} <span class="caret"></span>
-                      </a>
-
-                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="{{ route('logout') }}"
-                             onclick="event.preventDefault();
-                                           document.getElementById('logout-form').submit();">
-                              {{ __('Logout') }}
-                          </a>
-
-                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                              @csrf
-                          </form>
-                      </div>
-                  </li>
-              @endguest
-          </ul>
-      </div>
-  </div>
-</nav>
-
-
-
-
-
   <section class="about-wise">
     
     <h2 class="text-center section-tittle">¿QUE ES WISE GAME?</h2>
@@ -175,7 +120,30 @@
     </section><!-- fin tematicas-->
 
     <div class="col text-center">
-      <a class="btn btn-lg boton d-inline-flex mb-2" href="{{url('/home/play')}}">JUGUEMOS</a>
+      <div class="dropdown">
+        <button class="btn dropdown-toggle boton" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          JUGUEMOS
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <form action="{{url('/home/play')}}" method="POST">
+            @csrf
+            <div class="form-group p-2">
+              <select class="custom-select custom-select-sm" name="category">
+                <option selected>--Seleccione una categoria--</option>
+                <option value="1" class="dropdown-item">Arte</option>
+                <option value="2" class="dropdown-item">Ciencia</option>
+                <option value="3" class="dropdown-item">Cultura</option>
+                <option value="4" class="dropdown-item">Deporte</option>
+                <option value="5" class="dropdown-item">Entretenimiento</option>
+                <option value="6" class="dropdown-item">Farandula</option>
+                <option value="7" class="dropdown-item">Gastronomia</option>
+                <option value="8" class="dropdown-item">Historia</option>
+              </select>
+            </div>
+            <button type='submit' class="btn boton ml-4" style="color:#fff;">EMPEZEMOS!!!</button>
+          </form>
+        </div>
+      </div>
     </div>
     
   </section><!-- fin about-wise-->

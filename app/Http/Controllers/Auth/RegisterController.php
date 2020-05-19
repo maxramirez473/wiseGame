@@ -7,7 +7,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
+use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
+use Symfony\Component\HttpFoundation\FileBag;
 class RegisterController extends Controller
 {
     /*
@@ -46,7 +48,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    protected function validator(Array $data)
     {
 
         $mensajes=[
@@ -58,10 +60,10 @@ class RegisterController extends Controller
             ];
 
         return Validator::make($data, [
-            "alias"     =>"required|string|min:8|max:100",
-            "name"      =>"required|string|min:8|max:100",
+            "alias"     =>"required|string|min:8|max:50",
+            "name"      =>"required|string|min:8|max:50",
             "email"     =>"required|string|max:50",
-            "password"  =>"required|string|min:10",
+            "password"  =>"required|string|min:8",
             "avatar"    =>"required|image"
         ],$mensajes);
     }
@@ -72,9 +74,15 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function create(Array $data)
     {
+        
+        //dd($data);
+        $ruta=$data['avatar']->store('public/imagenesUsuarios');
+        $imagen=basename($ruta);
         return User::create([
+            'alias'=>$data['alias'],
+            'avatar'=>$imagen,
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),

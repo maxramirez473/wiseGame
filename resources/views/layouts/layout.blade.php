@@ -49,8 +49,8 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <a class="dropdown-item  my-0" href="{{url('/home/perfil')}}">PERFIL</a>
-                  /*<a class="dropdown-item  my-0" href="#">Another action</a>
-                  <a class="dropdown-item  my-0" href="#">Something else here</a>*/
+                  <a class="dropdown-item  my-0" href="#">Another action</a>
+                  <a class="dropdown-item  my-0" href="#">Something else here</a>
                 </div>
               </li>
             </ul>

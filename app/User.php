@@ -42,4 +42,7 @@ class User extends Authenticatable
         return $this->hasOne('App\Ranking');
     }
 
+    public function admin(){
+        return $this->hasOne('App\Admin');
+    }
 }

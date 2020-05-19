@@ -11,7 +11,7 @@ class Ranking extends Model
     protected $guarded=[];
 
 
-    public function persona(){
-        return $this->belongsTo('App\Person');
+    public function user(){
+        return $this->belongsTo('App\User');
     }
 }

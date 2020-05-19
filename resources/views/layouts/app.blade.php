@@ -18,7 +18,24 @@
     <!-- Scripts -->
    <script src="{{ asset('js/app.js') }}" defer></script>
 
-  
+    <style>
+        body {
+            width: 100%;
+            height: 600px;
+            background:rgb(37, 72, 142);
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, hsla(340, 95%, 50%, 0.459), hsla(317, 45%, 52%, 0.664)), url(../images/wisegame1.png);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, hsla(220, 59%, 35%), hsla(217, 99%, 17%, 0.66)), url(../images/wisegame1.png);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+           /*background-size: contain;*/
+           background-repeat: repeat-x;
+            background-attachment: fixed;
+            position: relative;
+            color: rgb(37, 72, 142);    
+        }
+
+    </style>
 </head>
 <body>
     <div id="app">

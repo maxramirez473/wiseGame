@@ -15,7 +15,7 @@ class CreateRankingsTable extends Migration
     {
         Schema::create('rankings', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->unsignedBigInteger('id');
+            $table->bigIncrements('id');
             $table->integer('total')->unsigned()->default(0);
             $table->integer('arte')->unsigned()->default(0);
             $table->integer('ciencia')->unsigned()->default(0);

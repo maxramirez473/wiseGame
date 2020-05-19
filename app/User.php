@@ -36,4 +36,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //ranking asociado a cada usuario
+    public function ranking() {
+        return $this->hasOne('App\Ranking');
+    }
+
 }

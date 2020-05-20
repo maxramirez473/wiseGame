@@ -18,15 +18,15 @@ const parrafo = document.getElementById("warnings")
       }
       if(!regexEmail.test(email.value)){
       warnings += `El email no es válido <br> `
-        entrar =  "true"
+        entrar =  true
     }
     if(password.value.length <8) {
       warnings += `La contraseña no es válida <br> `
-      entrar =  "true"
+      entrar =  true
     }
     if(avatar.value.length <191) {
       warnings += `La imagen supera el tamaño <br> `
-      entrar =  "true"
+      entrar =  true
     }
     if(entrar) {
       parrafo.innerHTML = warnings

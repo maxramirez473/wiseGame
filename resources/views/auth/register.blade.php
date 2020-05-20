@@ -95,8 +95,6 @@
                             </div>
                         </div>
                     </form>
-                    <script src="{{ asset('public/js/validar.js') }}"></script> {{-- Agregue la validacion validar.js --}}
-                    <link href="{{ asset('public/css/styleform.css') }}" rel="stylesheet"> {{-- Agregue el estilo para validar.js --}}
                 </div>
             </div>
         </div>

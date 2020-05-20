@@ -26,6 +26,12 @@ Route::get('/home/perfil', function () {
     return view('profile');
 });
 
+Route::get('/home/admin', function () {
+    return view('admin');
+});
+
+Route::post('/home/admin/agregar', 'questionController@agregar');
+
 Route::post('/home/play', 'questionController@pregunta');
 
 Auth::routes();

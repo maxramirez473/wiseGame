@@ -15,8 +15,8 @@ class AddForeignKeyQuestionsTable extends Migration
     {
         Schema::table('questions', function (Blueprint $table) {
             $table->engine='InnoDB';
-            $table->unsignedBigInteger('admin_id');
-            $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -28,7 +28,7 @@ class AddForeignKeyQuestionsTable extends Migration
     public function down()
     {
         Schema::table('questions', function (Blueprint $table) {
-            $table->dropForeign(['admin_id']);
+            $table->dropForeign(['user_id']);
         });
     }
 }

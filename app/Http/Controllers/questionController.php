@@ -12,50 +12,98 @@ class questionController extends Controller
     
 //agrega pregunta y 3 respuestas + correcta
 public function agregar(Request $form){
-    $pregunta = new Question();
-    $pregunta->pregunta=$form['pregunta'];
-    $pregunta->tipo=$form['tipo'];
-    $pregunta->respuesta1=$form['respuesta1'];
-    $pregunta->respuesta2=$form['respuesta2'];
-    $pregunta->respuesta3=$form['respuesta3'];
-    $pregunta->resp_correcta=$form['resp_correcta'];
+    $resp_tipo=null;
+    $resp_correcta=null;
+
+    $reglas=[
+        "pregunta"     =>"required|string|min:8|max:100",
+        "category"     =>"required|integer",
+        "respuesta1"  =>"required|string|min:8|max:100",
+        "respuesta2"=>"required|string|min:8|max:100",
+        "respuesta3" =>"required|string|min:8|max:100",
+        "correcta"    =>"required|integer"
+    ];
+
+    $mensajes=[
+        "required"=>"El campo es Obligatorio",
+        "string"  =>"El campo debe incluir letras, numeros y simbolos",
+        "min"     =>"El campo debe contener al menos :min caracteres",
+        "max"     =>"El maximo de caracteres es :max",
+        "integer"    =>"El campo debe se un numero",
+    ];
+
+    $this->validate($form, $reglas, $mensajes);
+
+
+
     
-    //saber a que categoria corresponde la question
-    switch ($form['tipo']) {
-        case 'historia':
-            $pregunta->category_id=8;
+     //saber tipo correcto
+     switch ($form['category']) {
+        
+        case '1':
+            $resp_tipo='arte';
+            break;
+
+        case '2':
+            $resp_tipo='ciencia';
+            break;
+
+        case '3':
+            $resp_tipo='cultura';
+            break;
+
+        case '4':
+            $resp_tipo='deporte';
+            break;
+    
+        case '5':
+            $resp_tipo='entretenimiento';
+            break;
+    
+        case '6':
+            $resp_tipo='farandula';
+            break;
+
+        case '7':
+            $resp_tipo='gastronomia';
             break;
         
-        case 'arte':
-            $pregunta->category_id=1;
+        case '8':
+            $resp_tipo='historia';
             break;
-
-        case 'ciencia':
-            $pregunta->category_id=2;
-            break;
-
-        case 'cultura':
-            $pregunta->category_id=3;
-            break;
-
-        case 'deporte':
-            $pregunta->category_id=4;
-            break;
-
-        case 'entretenimiento':
-            $pregunta->category_id=5;
-            break;
-
-        case 'farandula':
-            $pregunta->category_id=6;
-            break;
-
-        case 'gastronomia':
-            $pregunta->category_id=7;
-            break;
+        
+            
     }
-    $pregunta->save();
-    return view('home/admin');
+
+    //saber respuesta correcta
+    switch ($form['correcta']) {
+        
+        case '1':
+            $resp_correcta=$form['resp_1'];
+            break;
+
+        case '2':
+            $resp_correcta=$form['resp_2'];
+            break;
+
+        case '3':
+            $resp_correcta=$form['resp_3'];
+            break;
+            
+    }
+    
+    DB::table('questions')->insert(
+        ['pregunta' => $form['pregunta'],
+         'category_id' =>$form['category'],
+         'respuesta1' => $form['resp_1'],
+         'respuesta2' => $form['resp_2'],
+         'respuesta3' => $form['resp_3'],
+         'resp_correcta' =>$resp_correcta,
+         'tipo' => $resp_tipo,
+         'user_id'=>$form['user_id']
+         ]
+    );
+    return redirect('home/admin');
 }
 
 //trae pregunta random    

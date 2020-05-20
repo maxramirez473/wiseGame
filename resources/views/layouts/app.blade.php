@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="shortcut icon" href="{{asset('images/wisegame.png')}}" type="image/x-icon">
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
-
+    <link href="{{ asset('public/css/styleform.css') }}" rel="stylesheet">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -17,6 +17,7 @@
 
     <!-- Scripts -->
    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/validar.js') }}"></script>
 
     <style>
         body {
@@ -32,7 +33,7 @@
            background-repeat: repeat-x;
             background-attachment: fixed;
             position: relative;
-            color: rgb(37, 72, 142);    
+            color: rgb(37, 72, 142);
         }
 
     </style>

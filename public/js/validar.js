@@ -16,7 +16,7 @@ const parrafo = document.getElementById("warnings")
         warnings += `El nombre no es válido <br> `
         entrar =  true
       }
-      if(!regexEmail.test(email.value))
+      if(!regexEmail.test(email.value)){
       warnings += `El email no es válido <br> `
         entrar =  "true"
     }
